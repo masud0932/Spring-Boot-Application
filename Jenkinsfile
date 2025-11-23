@@ -13,7 +13,7 @@ triggers {
     stage('SonarQube Analysis') {
       steps {
         withSonarQubeEnv('SonarQube') {
-          sh "mvn sonar:sonar -Dsonar.projectKey=sonarcred"
+          sh "mvn sonar:sonar -Dsonar.projectKey=Spring-Boot-Application"
         }
       }
     }
