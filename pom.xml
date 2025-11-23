@@ -61,15 +61,13 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>${owasp.dependency.check.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <version>12.1.0</version>
+                <configuration>
+                <format>ALL</format>
+      <failBuildOnCVSS>8</failBuildOnCVSS>
+                </configuration>
             </plugin>
+            
             <!-- SpotBugs for static code analysis -->
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
