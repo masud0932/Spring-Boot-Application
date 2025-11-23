@@ -6,7 +6,7 @@ pipeline {
             steps { checkout scm }
         }
 
-    stage('Secret Detection') {
+    stage('Secret detection') {
             steps {
                 script {
                     sh '''
