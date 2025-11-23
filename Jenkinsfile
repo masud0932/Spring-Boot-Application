@@ -1,15 +1,19 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    steps {
-    stage('SonarQube Analysis') {
-      withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Spring-Boot-Application"
+    stages {
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh """
+                        mvn sonar:sonar -Dsonar.projectKey=Spring-Boot-Application
+                    """
+                }
+            }
+        }
+
     }
-  }
-    }
-}
 }
     
 
