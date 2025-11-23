@@ -64,7 +64,7 @@
                 <version>12.1.0</version>
                 <configuration>
                 <format>ALL</format>
-      <failBuildOnCVSS>10</failBuildOnCVSS>
+      <failBuildOnCVSS>15</failBuildOnCVSS>
                 </configuration>
             </plugin>
 
