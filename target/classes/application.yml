@@ -1,0 +1,29 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: devsecops-practice-app
+  security:
+    user:
+      name: admin
+      password: admin123
+
+logging:
+  level:
+    com.devsecops: INFO
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
