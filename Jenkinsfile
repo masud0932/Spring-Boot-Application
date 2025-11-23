@@ -38,8 +38,25 @@ pipeline {
         }
         }
 
+        stage('Maven Build') {
+            steps {
+                sh " mvn clean package "
+            }
+            
+        }
+        stage('Docker Build and Push') {
+            steps {
+                withDockerRegistry([credentialsId: "dockercred", url: ""]) {
+          sh 'printenv'
+          sh 'docker build -t masudrana09/spring-boot-application:latest .'
+          sh 'docker push masudrana09/spring-boot-application:latest'
+                }
+        }
+      }
+
+             }
+
     }
-}
 
     
 

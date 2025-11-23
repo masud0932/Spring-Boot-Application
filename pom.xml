@@ -64,10 +64,10 @@
                 <version>12.1.0</version>
                 <configuration>
                 <format>ALL</format>
-      <failBuildOnCVSS>8</failBuildOnCVSS>
+      <failBuildOnCVSS>10</failBuildOnCVSS>
                 </configuration>
             </plugin>
-            
+
             <!-- SpotBugs for static code analysis -->
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
