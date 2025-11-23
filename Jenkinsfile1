@@ -1,9 +1,5 @@
 pipeline {
   agent any
-
-triggers {
-        githubPush()  // For GitHub webhooks
-    }
     
   stages {
    stage('Checkout') {
@@ -18,12 +14,17 @@ triggers {
                     '''}
             }
     }
-    stage('SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('SonarQube') {
-          sh "mvn sonar:sonar -Dsonar.projectKey=sonarcred"
+     stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                        mvn sonar:sonar \
+                        -Dsonar.projectKey=Spring-Boot-Application \
+                        -Dsonar.host.url=http://16.16.200.43:9000/
+                    '''
+                }
+            }
         }
-      }
     }
       }
     }
