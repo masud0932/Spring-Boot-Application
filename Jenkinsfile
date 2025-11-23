@@ -11,7 +11,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
-                        mvn verify sonar:sonar \
+                        mvn clean verify sonar:sonar \
                         -Dsonar.projectKey=Spring-Boot-Application \
                         -Dsonar.host.url=http://16.16.200.43:9000/
                     '''
