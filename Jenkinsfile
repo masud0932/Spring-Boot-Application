@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+triggers {
+        githubPush()  // For GitHub webhooks
+    }
+    
   stages {
    stage('Checkout') {
             steps { checkout scm }
