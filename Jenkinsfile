@@ -14,10 +14,19 @@ pipeline {
         sh "mvn -v"
       }
     }
-    stage('javaa version') {
+    stage('java version') {
       steps {
         sh "java -version"
       }
+    }
+    stage('Secret Detection') {
+            steps {
+                script {
+                    // Method 1: Using installed Gitleaks binary
+                    sh '''
+                        gitleaks detect --source . --verbose --redact
+                    '''}
+            }
     }
     }
 }
