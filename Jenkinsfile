@@ -2,6 +2,9 @@ pipeline {
   agent any
 
   stages {
+   stage('Checkout') {
+            steps { checkout scm }
+        }
 
     stage('git version') {
       steps {
@@ -22,7 +25,6 @@ pipeline {
     stage('Secret Detection') {
             steps {
                 script {
-                    // Method 1: Using installed Gitleaks binary
                     sh '''
                         gitleaks detect --source . --verbose --redact
                     '''}
